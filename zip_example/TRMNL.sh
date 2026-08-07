@@ -15,7 +15,11 @@ source ./utils.sh
 ###############################################################################
 #
 # ----------------------------- USER SETTINGS -------------------------------- #
-API_KEY=$(cat apikey.txt)
+
+if [ -e apikey.sh ]; then
+  API_KEY=$(cat apikey.txt)
+fi
+
 BASE_URL="https://trmnl.app"
 RSSI="0"
 USER_AGENT="trmnl-display/0.1.1"
@@ -37,6 +41,10 @@ MIN_REFRESH_RATE=300
 
 # Get the MAC address for validation
 MAC_ADDRESS=$(get_mac_address)
+
+if [ -e ./TRMNL_config.sh ]; then
+  source ./TRMNL_config.sh
+fi
 
 # ---------------------------------------------------------------------------- #
 
