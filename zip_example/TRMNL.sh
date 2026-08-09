@@ -16,7 +16,7 @@ source ./utils.sh
 #
 # ----------------------------- USER SETTINGS -------------------------------- #
 
-if [ -e apikey.sh ]; then
+if [ -e apikey.txt ]; then
   API_KEY=$(cat apikey.txt)
 fi
 
