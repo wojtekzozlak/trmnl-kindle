@@ -1,0 +1,24 @@
+# This is an example of the config file, that overrides default values
+# for the main script.
+#
+# Copy it as `TRMNL_config.sh` and edit with desired values
+
+# API key of your device
+API_KEY="YOUR_UNIQUE_API_KEY"
+
+# BASE URL of the TRMNL server
+BASE_URL="https://trmnl.app"
+
+# Size of the PNG in *pixels*
+PNG_WIDTH=$(get_kindle_height)
+PNG_HEIGHT=$(get_kindle_width)
+
+# Minimal time to sleep for between refreshes. Takes priority over the server
+# provided refresh rate.
+MIN_REFRESH_RATE=300
+
+# Get the MAC address for validation
+MAC_ADDRESS=$(get_mac_address)
+
+# Set to true to enable debug messages, false to disable
+DEBUG_MODE=true

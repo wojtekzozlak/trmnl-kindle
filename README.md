@@ -209,6 +209,10 @@ Create a new file called `apikey.txt` in the `TRMNL_KINDLE` directory that only 
 
 <kdb><img src="https://github.com/usetrmnl/trmnl-kindle/blob/main/images/trmnl-kindle-extension.png" width="500px"></kdb>
 
+Alternatively, you can copy the `TRMNL_config.sh.example` file as `TRMNL_config.sh` and edit the `API_KEY` 
+variable. The `TRMNL_config.sh` is not tracked by the repository, making it convenient for local experimentation
+and development.
+
 ### 25. Disconnect Kindle
 Safely eject (disconnect) your Kindle.
 
