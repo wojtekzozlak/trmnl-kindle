@@ -20,9 +20,8 @@
 # Get the MAC address for validation
 # MAC_ADDRESS=$(get_mac_address)
 
-# IP or domain used to test if network is up (without the protocol, port or
-# path)
-# WIFI_TEST_ADDRESS=$(echo "$BASE_URL" | cut -d/ -f3 | cut -d: -f1)
+# IP or domain used to test if network is up (without the protocol, port or path)
+# WIFI_TEST_ADDRESS="8.8.8.8"
 
 # How wifi power state should be managed:
 # * ${WIFI_ALWAYS_ON} - keep wifi on
