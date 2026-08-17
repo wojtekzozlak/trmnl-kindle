@@ -42,20 +42,20 @@ MIN_REFRESH_RATE=300
 # Get the MAC address for validation
 MAC_ADDRESS=$(get_mac_address)
 
+# How wifi power state should be managed:
+# * ${WIFI_ALWAYS_ON} - keep wifi on
+# * ${WIFI_DISABLED_DURING_SLEEP} - disable wifi before going to sleep
+# * ${WIFI_AUTO} - keep wifi state during sleep as it was before script
+#   execution
+WIFI_MANAGEMENT=${WIFI_DISABLED_DURING_SLEEP}
+
 if [ -e ./TRMNL_config.sh ]; then
   source ./TRMNL_config.sh
 fi
 
 # IP or domain used to test if network is up (without the protocol, port or
 # path)
-WIFI_TEST_ADDRESS=$(echo "$BASE_URL" | cut -d/ -f3 | cut -d: -f1)
-
-# How wifi power state should be managed:
-# * ${WIFI_ALWAYS_ON} - keep wifi on
-# * ${WIFI_DISABLED_DURING_SLEEP} - disable wifi before going to sleep
-# * ${WIFI_AUTO} - keep wifi state during sleep as it was before script 
-#   execution
-WIFI_MANAGEMENT=${WIFI_DISABLED_DURING_SLEEP}
+WIFI_TEST_ADDRESS=${WIFI_TEST_ADDRESS:-$(echo "$BASE_URL" | cut -d/ -f3 | cut -d: -f1)}
 
 # ---------------------------------------------------------------------------- #
 
