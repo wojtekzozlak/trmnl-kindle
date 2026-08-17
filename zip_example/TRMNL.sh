@@ -67,6 +67,7 @@ if ! command -v eips >/dev/null 2>&1 \
     # Simply echo to console so you can see what *would* happen on Kindle
     echo "[eips STUB] $*"
   }
+  echo "eips binary not found! Screen changes won't be applied." >&2
 fi
 
 # Helper to track a text-based "cursor" for debug lines
@@ -82,18 +83,6 @@ eips_debug() {
     DEBUG_Y=$((DEBUG_Y+1))
   fi
 }
-
-# If eips is not found (i.e. running locally), define a no-op stub for testing
-if ! command -v eips >/dev/null 2>&1 \
- && ! type eips >/dev/null 2>&1 \
- && ! [ -x /usr/sbin/eips ]; then
-  eips() {
-    # Simply echo to console so you can see what *would* happen on Kindle
-    echo "[eips STUB] $*"
-  }
-  eips_debug "eips binary not found! Screen changes won't be applied."
-fi
-
 
 init() {
   /etc/init.d/framework stop
@@ -151,7 +140,7 @@ while true; do
   RESPONSE="$(
     curl -sL \
       -H "access-token: $API_KEY" \
-      -H "battery-percent: ${BATTERY_PERCENT}" \
+      -H "percent-charged: ${BATTERY_PERCENT}" \
       -H "png-width: $PNG_WIDTH" \
       -H "png-height: $PNG_HEIGHT" \
       -H "rssi: $RSSI" \
